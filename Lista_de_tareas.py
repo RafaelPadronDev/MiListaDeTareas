@@ -46,17 +46,18 @@ def eliminar_tareas():
 
 while True:
     menu()
-    opcion=int(input("Eligue una opcion: "))
-    if opcion==1:
-         revisa_tareas()
-    elif opcion==2:
-         agregar_tareas()
-    elif opcion==3:
-         marcar_tareas()
-    elif opcion==4:
-         eliminar_tareas()
-    elif opcion==5:
-        break
-    else:
-         print("Por favor eliga una opcion valida")
+    try:
+        opcion=int(input("Eligue una opcion:"))
+        if opcion==1:
+             revisa_tareas()
+        elif opcion==2:
+             agregar_tareas()
+        elif opcion==3:
+             marcar_tareas()
+        elif opcion==4:
+             eliminar_tareas()
+        elif opcion==5:
+            break
+    except ValueError:
+         print("\nError: Por favor, introduce solo un número.")
 
