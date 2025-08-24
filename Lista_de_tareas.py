@@ -1,4 +1,5 @@
 tareas=[]
+
 def menu():
     print("\nQue quieres hacer ")
     print("1.Revisar tareas")
@@ -8,12 +9,14 @@ def menu():
     print("5.Salir")
 
 def revisa_tareas():
-       separador="\n"
+       
        if len(tareas)==0:
             print("\nNo existen tareas por realizar")
        else:
-            lista_tareas=separador.join(tareas)
-            print(lista_tareas)
+            print("\n--- Tus Tareas Actuales ---")
+            for i, tarea in enumerate(tareas):
+                print(f"{i + 1}. {tarea}") 
+            print("---------------------------")
 
 def agregar_tareas():
      nueva_tarea = input("\nQue deseas agregar: ")
@@ -22,27 +25,27 @@ def agregar_tareas():
      tareas.append(new_tarea)
 
 def marcar_tareas():
-     separador="\n"
+     
      if len(tareas)==0:
             print("\nNo existen tareas por marcar")
      else:
-            lista_tares=separador.join(tareas)
-            print(lista_tares)
+            revisa_tareas()
             tareaCompletada=int(input("\nQue tarea quieres marcar como completada?: "))
             eleccion=tareaCompletada-1
             tareas[eleccion] = tareas[eleccion] + " (Completada)"
             print(f"Tarea '{tareas[eleccion].replace(' (Completada)', '')}' marcada como completada.")
                  
 def eliminar_tareas():
-     separador="\n"
+     
      if len(tareas)==0:
             print("\nNo existen tareas por eliminar")
      else:
-            lista_tares=separador.join(tareas)
-            print(lista_tares)
+            revisa_tareas()
             eliminarTarea=int(input("Que tarea quieres eliminar?: "))
             eleccion=eliminarTarea-1
             tareaEliminada=tareas.pop(eleccion)
+            print(f"Se elimino {tareaEliminada}")
+
 
 while True:
     menu()
@@ -58,6 +61,9 @@ while True:
              eliminar_tareas()
         elif opcion==5:
             break
+        else:
+             print("\nOpción no válida. Por favor, elige un número del 1 al 5.")
     except ValueError:
          print("\nError: Por favor, introduce solo un número.")
+
 
