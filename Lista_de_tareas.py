@@ -1,12 +1,14 @@
 tareas=[]
 
 def menu():
-    print("\nQue quieres hacer ")
+    print("\n--- Menú de Tareas ---")
+    print("Que quieres hacer ")
     print("1.Revisar tareas")
     print("2.Agregar tareas")
     print("3.Completar tareas")
     print("4.Eliminar tareas")
     print("5.Salir")
+    print("----------------------")
 
 def revisa_tareas():
        
